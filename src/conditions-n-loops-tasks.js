@@ -9,81 +9,38 @@
  *                                                                                           *
  ******************************************************************************************* */
 
-/**
- * Determines whether a given number is positive. Zero is considered positive.
- * This function does not use Number or Math class methods.
- *
- * @param {number} number - The number to check.
- * @return {boolean} True if the number is positive or zero, false otherwise.
- *
- * @example:
- *  10 => true
- *  0  => true
- *  -5 => false
- */
-function isPositive(/* number */) {
-  throw new Error('Not implemented');
+function isPositive(number) {
+  return number >= 0;
 }
 
-/**
- * Returns the maximum of three numbers without using Array and Math classes methods.
- *
- * @param {number} a - The first number.
- * @param {number} b - The second number.
- * @param {number} c - The third number.
- * @return {number} The maximum of the three numbers.
- *
- * @example:
- *  1, 2, 3       => 3
- *  -5, 0, 5      => 5
- *  -0.1, 0, 0.2  => 0.2
- */
-function getMaxNumber(/* a, b, c */) {
-  throw new Error('Not implemented');
+function getMaxNumber(a, b, c) {
+  let maxNumber = null;
+  if (a > b) {
+    maxNumber = a;
+    if (a < c) {
+      maxNumber = c;
+    }
+  } else {
+    maxNumber = b;
+    if (b < c) {
+      maxNumber = c;
+    }
+  }
+  return maxNumber;
 }
 
-/**
- * Checks if a queen can capture a king in the next move on an 8x8 chessboard.
- * See more details at https://en.wikipedia.org/wiki/Queen_(chess)
- *
- * @typedef {{
- *  x: number,
- *  y: number
- * }} Position
- * @param {Object} queen - The position of the queen.
- * @param {Object} king - The position of the king.
- * @return {boolean} True if the queen can capture the king, false otherwise.
- *
- * @example
- * {x: 1, y: 1}, {x: 5, y: 5} => true
- * {x: 2, y: 1}, {x: 2, y: 8} => true
- * {x: 1, y: 1}, {x: 2, y: 8} => false
- * {x: 1, y: 1}, {x: 2, y: 8} => false
- */
-function canQueenCaptureKing(/* queen, king */) {
-  throw new Error('Not implemented');
+function canQueenCaptureKing(queen, king) {
+  if (queen.x === king.x) return true;
+  if (queen.y === king.y) return true;
+  if (Math.abs(queen.x - king.x) === Math.abs(queen.y - king.y)) return true;
+  return false;
 }
 
-/**
- * Determines whether a triangle is isosceles based on its side lengths.
- * In this task, the use of methods of the String and Array classes is not allowed.
- *
- * @param {number} a - The length of the first side.
- * @param {number} b - The length of the second side.
- * @param {number} c - The length of the third side.
- * @return {boolean} True if the triangle is isosceles, false otherwise.
- *
- * @example:
- *  1, 2, 3   => false
- *  3, 1, 2   => false
- *  2, 3, 2   => true
- *  3, 2, 2   => true
- *  2, 2, 3   => true
- *  2, 2, 5   => false
- *  3, 0, 3   => false
- */
-function isIsoscelesTriangle(/* a, b, c */) {
-  throw new Error('Not implemented');
+function isIsoscelesTriangle(a, b, c) {
+  if (a === b && a + b > c && c !== 0) return true;
+  if (a === c && a + c > b && b !== 0) return true;
+  if (b === c && b + c > a && b !== 0) return true;
+  return false;
 }
 
 /**
