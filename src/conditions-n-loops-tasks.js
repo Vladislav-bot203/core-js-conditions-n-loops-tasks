@@ -148,23 +148,14 @@ function getIndexOf(str, letter) {
   return result;
 }
 
-/**
- * Checks if a number contains a specific digit.
- * In this task, the use of methods of the String and Array classes is not allowed.
- *
- * @param {number} num - The number to check.
- * @param {number} digit - The digit to search for.
- * @return {boolean} True if the number contains the digit, false otherwise.
- *
- * @example:
- *  123450, 5   => true
- *  123450, 1   => true
- *  123450, 0   => true
- *  12345, 0    => false
- *  12345, 6    => false
- */
-function isContainNumber(/* num, digit */) {
-  throw new Error('Not implemented');
+function isContainNumber(num, digit) {
+  const string = String(num);
+  const digitStr = String(digit);
+  let result = false;
+  for (let i = 0; i < string.length; i += 1) {
+    if (string[i] === digitStr) result = true;
+  }
+  return result;
 }
 
 /**
