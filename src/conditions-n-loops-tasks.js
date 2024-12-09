@@ -140,22 +140,12 @@ function isPalindrome(str) {
   return string === str;
 }
 
-/**
- * Finds the first occurrence of a letter in a string.
- * In this task, the use of methods of the String and Array classes is not allowed.
- *
- * @param {string} str - The string to search.
- * @param {string} letter - The letter to find.
- * @return {number} The index of the first occurrence of the letter, or -1 if not found.
- *
- * @example:
- *  'qwerty', 'q'     => 0
- *  'qwerty', 't'     => 4
- *  'qwerty', 'Q'     => -1
- *  'qwerty', 'p'     => -1
- */
-function getIndexOf(/* str, letter */) {
-  throw new Error('Not implemented');
+function getIndexOf(str, letter) {
+  let result = -1;
+  for (let i = 0; i < str.length; i += 1) {
+    if (str[i] === letter) result = i;
+  }
+  return result;
 }
 
 /**
