@@ -132,20 +132,12 @@ function convertNumberToString(numberStr) {
   return string;
 }
 
-/**
- * Determines whether a string is a palindrome.
- * In this task, the use of methods of the String and Array classes is not allowed.
- *
- * @param {string} str - The string to check.
- * @return {boolean} True if the string is a palindrome, false otherwise.
- *
- * @example:
- *  'abcba'     => true
- *  '0123210'   => true
- *  'qweqwe'    => false
- */
-function isPalindrome(/* str */) {
-  throw new Error('Not implemented');
+function isPalindrome(str) {
+  let string = '';
+  for (let i = str.length - 1; i >= 0; i -= 1) {
+    string += str[i];
+  }
+  return string === str;
 }
 
 /**
