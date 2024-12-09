@@ -61,23 +61,75 @@ function convertToRomanNumerals(/* num */) {
   throw new Error('Not implemented');
 }
 
-/**
- * Converts a number to a string, replacing digits with words.
- * In this task, the use of methods of the String and Array classes is not allowed.
- *
- * @param {string} numberStr - The number as a string.
- * @return {string} The number with digits replaced by words.
- *
- * @example:
- *  '1'       => 'one'
- *  '10'      => 'one zero'
- *  '-10'     => 'minus one zero'
- *  '10.5'    => 'one zero point five'
- *  '10,5'    => 'one zero point five'
- *  '1950.2'  => 'one nine five zero point two'
- */
-function convertNumberToString(/* numberStr */) {
-  throw new Error('Not implemented');
+function convertNumberToString(numberStr) {
+  const arr = [
+    'zero',
+    'one',
+    'two',
+    'three',
+    'four',
+    'five',
+    'six',
+    'seven',
+    'eight',
+    'nine',
+    'point',
+    'minus',
+  ];
+  const result = [];
+  let string = '';
+  for (let i = 0; i < numberStr.length; ) {
+    switch (numberStr[i]) {
+      case '0':
+        result[i] = `${arr[0]}`;
+        break;
+      case '1':
+        result[i] = `${arr[1]}`;
+        break;
+      case '2':
+        result[i] = `${arr[2]}`;
+        break;
+      case '3':
+        result[i] = `${arr[3]}`;
+        break;
+      case '4':
+        result[i] = `${arr[4]}`;
+        break;
+      case '5':
+        result[i] = `${arr[5]}`;
+        break;
+      case '6':
+        result[i] = `${arr[6]}`;
+        break;
+      case '7':
+        result[i] = `${arr[7]}`;
+        break;
+      case '8':
+        result[i] = `${arr[8]}`;
+        break;
+      case '9':
+        result[i] = `${arr[9]}`;
+        break;
+      case '.':
+        result[i] = `${arr[10]}`;
+        break;
+      case ',':
+        result[i] = `${arr[10]}`;
+        break;
+      case '-':
+        result[i] = `${arr[11]}`;
+        break;
+      default:
+        break;
+    }
+    if (i === 0) {
+      string = result[i];
+    } else {
+      string += ` ${result[i]}`;
+    }
+    i += 1;
+  }
+  return string;
 }
 
 /**
