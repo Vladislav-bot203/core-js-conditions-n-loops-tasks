@@ -174,29 +174,45 @@ function getBalanceIndex(arr) {
   return -1;
 }
 
-/**
- * Generates a spiral matrix of a given size, filled with numbers in ascending order starting from one.
- * The direction of filling with numbers is clockwise.
- * Usage of String and Array classes methods is not allowed in this task.
- *
- * @param {number} size - The size of the matrix.
- * @return {number[][]} The spiral matrix.
- *
- * @example:
- *        [
- *          [1, 2, 3],
- *  3  =>   [8, 9, 4],
- *          [7, 6, 5]
- *        ]
- *        [
- *          [1,  2,  3,  4],
- *  4  =>   [12, 13, 14, 5],
- *          [11, 16, 15, 6],
- *          [10, 9,  8,  7]
- *        ]
- */
-function getSpiralMatrix(/* size */) {
-  throw new Error('Not implemented');
+function getSpiralMatrix(size) {
+  let counter = 1;
+  const maxValue = size ** 2;
+  let minCol = 0;
+  let minRow = 0;
+  let maxCol = size - 1;
+  let maxRow = size - 1;
+  const arr = new Array(size);
+
+  for (let c = 0; c < size; c += 1) {
+    arr[c] = new Array(size);
+  }
+
+  while (counter <= maxValue) {
+    for (let i = minCol; i <= maxCol; i += 1) {
+      arr[minRow][i] = counter;
+      counter += 1;
+    }
+    minRow += 1;
+
+    for (let j = minRow; j <= maxRow; j += 1) {
+      arr[j][maxCol] = counter;
+      counter += 1;
+    }
+    maxCol -= 1;
+
+    for (let k = maxCol; k >= minCol; k -= 1) {
+      arr[maxRow][k] = counter;
+      counter += 1;
+    }
+    maxRow -= 1;
+
+    for (let n = maxRow; n >= minRow; n -= 1) {
+      arr[n][minCol] = counter;
+      counter += 1;
+    }
+    minCol += 1;
+  }
+  return arr;
 }
 
 /**
