@@ -235,22 +235,21 @@ function rotateMatrix(matrix) {
   return paramMatrix;
 }
 
-/**
- * Sorts an array of numbers in ascending order in place.
- * Employ any sorting algorithm of your choice.
- * Take into account that the array can be very large. Consider how you can optimize your solution.
- * In this task, the use of methods of the Array and String classes is not allowed.
- *
- * @param {number[]} arr - The array to sort.
- * @return {number[]} The sorted array.
- *
- * @example:
- *  [2, 9, 5]       => [2, 5, 9]
- *  [2, 9, 5, 9]    => [2, 5, 9, 9]
- *  [-2, 9, 5, -3]  => [-3, -2, 5, 9]
- */
-function sortByAsc(/* arr */) {
-  throw new Error('Not implemented');
+function sortByAsc(arr) {
+  const arrToSort = arr;
+  const n = arr.length;
+  for (let i = 0; i < n - 1; i += 1) {
+    let minIdx = i;
+    for (let j = i + 1; j < n; j += 1) {
+      if (arrToSort[j] < arrToSort[minIdx]) {
+        minIdx = j;
+      }
+    }
+    const temp = arrToSort[i];
+    arrToSort[i] = arrToSort[minIdx];
+    arrToSort[minIdx] = temp;
+  }
+  return arrToSort;
 }
 
 /**
