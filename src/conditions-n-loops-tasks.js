@@ -43,20 +43,6 @@ function isIsoscelesTriangle(a, b, c) {
   return false;
 }
 
-/**
- * Converts a number to Roman numerals. The number will be between 1 and 39.
- * In this task, the use of methods of the String and Array classes is not allowed.
- *
- * @param {number} num - The number to convert.
- * @return {string} The Roman numeral representation of the number.
- *
- * @example:
- *  1   => I
- *  2   => II
- *  5   => V
- *  10  => X
- *  26  => XXVI
- */
 function convertToRomanNumerals(num) {
   const string = String(num);
   let result = '';
