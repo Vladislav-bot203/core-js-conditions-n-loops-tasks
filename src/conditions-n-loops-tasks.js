@@ -261,23 +261,6 @@ function sortByAsc(arr) {
   return arrToSort;
 }
 
-/**
- * Shuffles characters in a string so that the characters with an odd index are moved to the end of the string at each iteration.
- * Take into account that the string can be very long and the number of iterations is large. Consider how you can optimize your solution.
- * Usage of Array class methods is not allowed in this task.
- *
- * @param {string} str - The string to shuffle.
- * @param {number} iterations - The number of iterations to perform the shuffle.
- * @return {string} The shuffled string.
- *
- * @example:
- *  '012345', 1 => '024135'
- *  'qwerty', 1 => 'qetwry'
- *  '012345', 2 => '024135' => '043215'
- *  'qwerty', 2 => 'qetwry' => 'qtrewy'
- *  '012345', 3 => '024135' => '043215' => '031425'
- *  'qwerty', 3 => 'qetwry' => 'qtrewy' => 'qrwtey'
- */
 function shuffleChar(str, iterations) {
   let result = str;
   for (let j = iterations; j >= 1; j -= 1) {
@@ -312,8 +295,35 @@ function shuffleChar(str, iterations) {
  * @param {number} number The source number
  * @returns {number} The nearest larger number, or original number if none exists.
  */
-function getNearestBigger(/* number */) {
-  throw new Error('Not implemented');
+function getNearestBigger(number) {
+  const arr = Array.from(String(number), Number);
+  let pivotIndex = -1;
+
+  for (let i = arr.length - 2; i > 0; i -= 1) {
+    if (arr[i + 1] > arr[i]) {
+      pivotIndex = i;
+      break;
+    }
+  }
+
+  if (pivotIndex === -1) {
+    return number;
+  }
+
+  let swapIndex = -1;
+
+  for (let j = arr.length - 1; j > pivotIndex; j -= 1) {
+    if (arr[j] > arr[pivotIndex]) {
+      swapIndex = j;
+      break;
+    }
+  }
+
+  [arr[pivotIndex], arr[swapIndex]] = [arr[swapIndex], arr[pivotIndex]];
+
+  const sorted = arr.splice(pivotIndex + 1).sort((a, b) => a - b);
+
+  return Number(arr.concat(sorted).join(''));
 }
 
 module.exports = {
